@@ -13,7 +13,7 @@ class HopfieldNetwork: # class declaration
             self.weights += np.outer(p, p)  # update the weights using the outer product of the pattern with itself
         np.fill_diagonal(self.weights, 0)  # diagonal elements set to zero to avoid self-connections
 
-    def recall(self, pattern, steps=10): # another function declaratio
+    def recall(self, pattern, steps=10): # another function declaration
         for step in range(steps):  # iterate 'steps' amount
             new_pattern = pattern.copy()  # make copy of the current pattern
             for i in range(self.num_neurons):  # iterate over each neuron
