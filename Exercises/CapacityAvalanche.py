@@ -1,3 +1,4 @@
+# Exercise 42.8 in the book
 import numpy as np 
 
 class HopfieldNetwork:
