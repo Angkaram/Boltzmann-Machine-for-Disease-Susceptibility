@@ -1,4 +1,4 @@
-# A PyTorch project applying a Restricted Boltzmann Machine (RBM) structure using [Genomic data](https://www.ebi.ac.uk/gwas/) to create a simple neural network that tracks or predicts disease susceptibility.
+# A PyTorch project applying a Restricted Boltzmann Machine (RBM) structure using [Genomic data](https://www.internationalgenome.org) to create a simple neural network that tracks or predicts disease susceptibility.
 
 **Project Progress:**
 1. July 19, 2024: Using the [book](http://www.inference.org.uk/itprnn/book.pdf) *Information Theory, Inference, and Learning Algorithms* by David J.C. MacKay, I am learning about the complex mathematics and logic that goes into Neural Networks (especially with Chapter 40). With this information, I am also solving some of the exercises from the book (42.5 and 42.8 are shown in the  exercises folder in this repository). 
