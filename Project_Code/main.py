@@ -2,6 +2,8 @@ from Genomic_Preprocessing import load_vcf
 from RBM_Model import RBM
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+from features import extract_features
+from visual import visualize_features
 
 file_path = 'HG00096.cnvnator.illumina_high_coverage.20190825.sites.vcf.gz'
 
@@ -28,3 +30,10 @@ corrupted_data = rbm.add_noise(data, corruption_level)
 corrected_data = rbm.error_correction(corrupted_data)
 error_rate = np.mean((data != corrected_data).astype(int))
 print(f'Error after Correction: {error_rate}')
+
+# new for week 2:
+
+features = extract_features(rbm, data)
+
+# visualize the extracted features
+visualize_features(features)
