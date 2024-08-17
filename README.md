@@ -11,17 +11,22 @@
 In this project, I dove into the world of Restricted Boltzmann Machines (RBMs) with guidance from David MacKay's Information Theory, Inference, and Learning Algorithms and insights from Professor VanValkenburgh. RBMs are a type of stochastic neural network that are particularly powerful in unsupervised learning tasks, especially when dealing with complex, high-dimensional data such as genomic data. My main goal was to leverage the theories from the book and build an effective model for unsupervised learning. I started by processing data from a VCF file, which is a standard format for storing genomic data, and converting it into a binary format that the RBM could handle. This involved selecting numeric data, filling in missing values, and binarizing everything to align with the RBM's requirement for binary inputs. This step was crucial for ensuring that the RBM could learn patterns effectively.
 
 The RBM I built has visible and hidden units with weights initialized randomly and biases set to zero. At the core of the RBM is the idea of minimizing energy to learn dependencies between variables. The model works by reducing the energy of configurations that represent the data accurately and increasing it for those that don't. This energy-based approach allows the RBM to discover complex patterns and dependencies within the data that are not immediately obvious. The energy function is central to the RBM's operation and is defined as:
+
 ![Energy Function](Project_Code/energy_function.png)
+
 This equation shows how the energy E(v,h) is computed using the visible units, v, hidden units, h, weight matrix, W, and the biases, b and c. 
 The energy function is then used to derive the probability distributions over the visible and hidden states, with the partition function playing a major role in normalizing these distributions.
 
 For training, I used the Contrastive Divergence (CD) algorithm, which approximates the gradient of the log-likelihood and updates the weights by comparing the positive and negative phase interactions. The weight update rule can be described by the following equation:
+
 ![weight update](Project_Code/weight_update_hebbian.png)
+
 ![weight plot](Project_Code/weight_plot.png)
 
 This process, a form of Hebbian learning, strengthens connections between frequently co-activated units, embodying the principle that "neurons that fire together, wire together." The positive phase involves correlating the observed data with the hidden units, while the negative phase reconstructs the data from the hidden layer. The difference between these two phases updates the weights, guiding the RBM to capture the data's underlying structure effectively.
 
 The sigmoid function played a huge role here, helping me compute activation probabilities so the RBM could sample hidden and visible states. The sigmoid function is given by:
+
 ![sigmoid](Project_Code/sigmoid_activation.png)
 
 The sigmoid function introduces non-linearity into the model, which is essential for learning complex relationships. It maps the weighted sum of inputs to a probability between 0 and 1, enabling probabilistic inference in the network. This capability is crucial for modeling the stochastic nature of genomic data, which often involves randomness and uncertainty.
@@ -29,7 +34,9 @@ The sigmoid function introduces non-linearity into the model, which is essential
 After training, I introduced feature extraction and visualization techniques to get a better grasp of the learned representations. Feature extraction involved transforming input data into hidden layer activations, providing a compact representation of the data. These features represent a compressed form of the original data, where each hidden unit activation reflects a specific pattern or trait that the RBM has learned.
 
 To visualize these features, I employed t-SNE, a machine learning tool for reducing dimensionality while preserving local structures. t-SNE maps high-dimensional data into two dimensions, which allows us to visualize complex datasets and identify clusters, groups, or patterns. It effectively captures non-linear structures in the data, making the visualizations more insightful. t-SNE’s core idea involves minimizing the Kullback-Leibler divergence, which is mathematically expressed as:
+
 ![tSNE](Project_Code/tSNEDivergence.png)
+
 This equation measures how one probability distribution P diverges from a second, expected probability distribution Q. The resulting clusters and relationships within the data could reveal potential genetic associations or variations of significance. However, further analysis is needed to determine the biological relevance of these patterns.
 
 The visualization makes the data and RBM more tangible, and I plan to continue my analysis and visualization efforts. For now, I interpret the clusters in the t-SNE plot as corresponding to distinct genomic profiles associated with different phenotypes or diseases. By identifying these clusters in the future, I can hypothesize about potential biomarkers or genetic signatures that could be explored further in a biological context.
@@ -43,7 +50,9 @@ Dimensionality reduction techniques such as Principal Component Analysis (PCA) a
 **PCA: Principal Component Analysis**
 
 PCA is a linear technique that projects the data into the directions of maximum variance. It provides a way to observe how distinct the learned features are when reduced to a two-dimensional space. This method is particularly useful for visualizing the separability of different classes if labels are available. PCA works by solving the eigenvalue problem:
+
 ![PCA](Project_Code/PCA.png)
+
 where C is the covariance matrix of the data, v are the eigenvectors, and λ are the corresponding eigenvalues. The principal components are the eigenvectors corresponding to the largest eigenvalues, which capture the most significant variance in the data (Jolliffe et al. 2016).
 ![PCA Plot](Project_Code/PCA_plot.png)
 
@@ -59,7 +68,9 @@ Visualizing the weight matrix of the RBM provides valuable insights into the lea
 **Performance Evaluation Through Reconstruction Comparison**
 
 Comparing original and reconstructed data is a fundamental step in assessing the RBM’s performance. The reconstruction error, often measured by the mean squared error (MSE), is calculated as:
+
 ![MSE](Project_Code/MSE.png)
+
 this equation quantifies the difference between the original data and the data generated by the RBM. Accurate reconstruction indicates that the RBM effectively captures complex relationships within the data. This comparison is crucial for understanding how well the model has learned to reconstruct the input data from its latent representation. In the context of tasks such as disease susceptibility prediction using genomic data, accurate reconstruction indicates that the RBM effectively captures complex relationships within the data (Khare et al. 2022).
 
 # Future Content:
