@@ -18,7 +18,9 @@ This equation shows how the energy E(v,h) is computed using the visible units, v
 The energy function is then used to derive the probability distributions over the visible and hidden states, with the partition function playing a major role in normalizing these distributions.
 
 For training, I used the Contrastive Divergence (CD) algorithm, which approximates the gradient of the log-likelihood and updates the weights by comparing the positive and negative phase interactions. The weight update rule can be described by the following equation:
+
 ![weight update](Project_Code/weight_update_hebbian.png)
+
 ![weight plot](Project_Code/weight_plot.png)
 
 This process, a form of Hebbian learning, strengthens connections between frequently co-activated units, embodying the principle that "neurons that fire together, wire together." The positive phase involves correlating the observed data with the hidden units, while the negative phase reconstructs the data from the hidden layer. The difference between these two phases updates the weights, guiding the RBM to capture the data's underlying structure effectively.
