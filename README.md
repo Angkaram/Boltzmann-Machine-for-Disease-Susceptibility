@@ -42,7 +42,7 @@ This equation measures how one probability distribution P diverges from a second
 
 The visualization makes the data and RBM more tangible, and I plan to continue my analysis and visualization efforts. For now, I interpret the clusters in the t-SNE plot as corresponding to distinct genomic profiles associated with different phenotypes or diseases. By identifying these clusters in the future, I can hypothesize about potential biomarkers or genetic signatures that could be explored further in a biological context.
 
-In the final phase of my project, I concentrated on integrating advanced visualizations and performance evaluations to deepen my understanding of the RBM. This involved applying dimensionality reduction techniques, visualizing weight matrices, and comparing original and reconstructed data. These steps are essential for interpreting the model's behavior and ensuring it captures the underlying structure of the data. My approach was guided by the theoretical insights and mathematical frameworks provided in David MacKay's book, Information Theory, Inference, and Learning Algorithms.
+In the final phase of my project, I concentrated on integrating advanced visualizations and performance evaluations to deepen my understanding of the RBM. This involved applying dimensionality reduction techniques, visualizing weight matrices, and comparing original and reconstructed data. These steps are essential for interpreting the model's behavior and ensuring it captures the underlying structure of the data. My approach was guided by the theoretical insights and mathematical frameworks provided in David MacKay's book.
 
 **Dimensionality Reduction and Visualization**
 
